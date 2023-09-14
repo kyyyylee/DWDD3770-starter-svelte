@@ -1,6 +1,7 @@
-# Welcome to my DWDD 3770 RIA I Svelte Project!
-:star::star::star::star::star::star::star:
+# :love_letter: Welcome to my Svelte Project! :love_letter:
 
-Created using :skull_and_crossbones: [skeleton.dev](https://www.skeleton.dev/)
+For my DWDD 3770 RIA I class 
 
+Created using [skeleton.dev](https://www.skeleton.dev/) 
 
+:skull_and_crossbones:  :heart:  :skull_and_crossbones: :heart:  :skull_and_crossbones: :heart:  :skull_and_crossbones: :heart:  :skull_and_crossbones: :heart:  :skull_and_crossbones:
