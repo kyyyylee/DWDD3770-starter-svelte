@@ -21,10 +21,11 @@
     }
 </script>
 
-<h1 class="m-4 text-center">
+<h1 class="text-center m-4">Reactivity</h1>
+<p class="m-4 text-center">
 	At the heart of Svelte is a powerful system of reactivity for keeping the DOM in sync with your
 	application state. Svelte's reactivity is triggered by assignments
-</h1>
+</p>
 <div class="bg-slate-200 m-4 p-4 flex flex-col items-center">
 	<h3 class="text-slate-800">Button Clicker</h3>
 	<button class="btn btn-md w-1/2 bg-pink-400 rounded-full m-4" on:click={handleClick}>
