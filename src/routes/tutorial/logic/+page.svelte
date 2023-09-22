@@ -1,9 +1,17 @@
 <script lang="ts">
     import { faker } from '@faker-js/faker'
+	import { getRandomNumber } from '$lib/utils/delayFunction';
 
 	let count = 0;
+
+	let promise = getRandomNumber();
+
 	function increment() {
 		count += 1;
+	}
+
+	function handleClick() {
+		promise = getRandomNumber();
 	}
 
 	const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
@@ -63,4 +71,19 @@
         <p>{lastName}</p>
     </div>
     {/each}
+</div>
+
+<!-- await block -->
+<div class="flex flex-col items-center m-6">
+<button class="btn btn-md bg-pink-400 rounded-full m-4" on:click={handleClick}>
+	generate a random number
+</button>
+
+{#await promise}
+	<p>...waiting</p>
+{:then number}
+	<p>The number is {number}</p>
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
 </div>
