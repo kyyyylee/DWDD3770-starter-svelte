@@ -1,6 +1,7 @@
 <script lang="ts">
     import { faker } from '@faker-js/faker'
 	import { getRandomNumber } from '$lib/utils/delayFunction';
+	import { ProgressRadial } from '@skeletonlabs/skeleton';
 
 	let count = 0;
 
@@ -80,7 +81,7 @@
 </button>
 
 {#await promise}
-	<p>...waiting</p>
+<ProgressRadial ... stroke={250} meter="stroke-pink-500" track="stroke-pink-500/30" />
 {:then number}
 	<p>The number is {number}</p>
 {:catch error}
