@@ -12,7 +12,7 @@
 	} */
 </script>
 
-<div class="container flex flex-col gap-4 m-4 h-full">
+<div class="container flex flex-col gap-4 m-4 h-11/12">
 	<div
 		class="border border-slate-400 left-0 top-0 p-8 m-4"
 		on:pointermove={(e) => (m = { x: e.clientX, y: e.clientY })}
