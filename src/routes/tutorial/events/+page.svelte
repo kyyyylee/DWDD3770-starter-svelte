@@ -1,11 +1,21 @@
 <script lang="ts">
-    import Messenger from "$lib/components/Messenger.svelte";
-	import Layout from "../../+layout.svelte";
+	import Messenger from '$lib/components/Messenger.svelte';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+    import type { ModalSettings, ModalComponent, ModalStore } from '@skeletonlabs/skeleton';
+	const modalStore = getModalStore();
+
 	let m = { x: 0, y: 0 };
 
-    function handleMessage(event: any) {
-        alert(event.detail.text);
-    }
+	function handleMessage(event: any) {
+		const modal: ModalSettings = {
+			type: 'alert',
+			// Data
+			title: 'Example foo Alert',
+			body: 'This is an example modal. Can be used  for alerts or other messages',
+			image: 'https://i.imgur.com/WOgTG96.gif'
+		};
+		modalStore.trigger(modal);
+	}
 	/* function handleMove(event: { clientX: number; clientY: number; }) {
 		m.x = event.clientX;
 		m.y = event.clientY;
@@ -27,4 +37,4 @@
 	</button>
 </div>
 
-<Messenger on:message={handleMessage} />
+<Messenger on:foo={handleMessage} />
