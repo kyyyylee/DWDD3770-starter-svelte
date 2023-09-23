@@ -1,6 +1,6 @@
 # :love_letter: Welcome to my Svelte Project! :love_letter:
 
-For my DWDD 3770 RIA I class 
+For my DWDD 3770 RIA I class at UVU
 
 Created using [skeleton.dev](https://www.skeleton.dev/) 
 
