@@ -2,6 +2,6 @@
 	export let message: string = 'Hello from the parent component'
 </script>
 
-<div class=" bg-pink-400 m-4 text-center py-10">
-	<p>{@html message}</p>
+<div class=" bg-primary-300 m-4 text-center p-8 rounded-lg">
+	<p class="text-xl">{@html message}</p>
 </div>

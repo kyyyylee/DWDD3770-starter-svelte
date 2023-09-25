@@ -9,7 +9,7 @@
     
     </script>
     
-    <p>
+    <p class="p-4 m-2 text-lg text-center">
         The <code>{name}</code> package is {speed} fast and is currently at version <code>{version}</code>. 
         Download it from <a href={href}>{website}</a>. 
     </p>
