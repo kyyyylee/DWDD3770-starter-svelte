@@ -24,7 +24,7 @@
 		numbers = [1,2,3,4,5];
 	}
 </script>
-
+<section style="max-width:60rem;margin:auto;">
 <h1 class="text-center m-4 text-xl">Reactivity</h1>
 <p class="p-4 m-2 text-lg text-center">
 	At the heart of Svelte is a powerful system of reactivity for keeping the DOM in sync with your
@@ -41,3 +41,4 @@
     <p>{numbers.join(' + ')} = {sum}</p>
 	<button class="btn btn-md bg-surface-900 text-white rounded-full m-4" on:click={resetNumbers}>RESET</button>
 </div>
+</section>

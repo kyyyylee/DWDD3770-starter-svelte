@@ -31,6 +31,7 @@
 
 </script>
 
+<section style="max-width:60rem;margin:auto;">
 <!-- logic intro -->
 <h1 class="m-4 text-center text-xl">Logic</h1>
 <p class="p-4 m-2 text-lg text-center">
@@ -106,3 +107,4 @@
     {/each}
 </div>
 </div>
+</section>
