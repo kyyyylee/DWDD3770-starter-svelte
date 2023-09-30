@@ -1,5 +1,6 @@
 <script lang="ts">
     import Outer from '$lib/components/Outer.svelte';
+    import BigPinkButton from '$lib/components/BigPinkButton.svelte';
 	import { getModalStore } from '@skeletonlabs/skeleton';
     import type { ModalSettings, ModalComponent, ModalStore } from '@skeletonlabs/skeleton';
 	const modalStore = getModalStore();
@@ -22,21 +23,25 @@
 	} */
 </script>
 
-<div class="container flex flex-col gap-4 m-4 h-11/12">
+<div class="flex flex-col items-center m-4 h-11/12">
 	<div
-		class="border border-slate-400 left-0 top-0 p-16"
+		class="border border-slate-400 left-0 top-0 w-96 h-96 p-4"
 		on:pointermove={(e) => (m = { x: e.clientX, y: e.clientY })}
 	>
 		<h2 class="text-center bg-pink-400 p-2 m-4">
 			Your pointer is currently at {Math.floor(m.x)} x {Math.floor(m.y)}
 		</h2>
 	</div>
-
-	<button class="btn btn-lg bg-lime-300 mx-8 p-4" on:click|once={() => alert('clicked')}>
+</div>
+<div class="flex flex-col items-center">
+    <button class="btn btn-lg bg-lime-300 m-4 p-4" on:click|once={() => alert('clicked')}>
 		Click for ugly alert
 	</button>
-
+    <p class="mb-2">This example dispatches a basic alert on the first click only</p>
     <Outer on:foo={handleMessage}/>
+    <p class="mb-2">This example dispatches the Foo event</p>
+    <BigPinkButton on:click={handleMessage} />
+    <p class="mb-2">This example forwards a DOM 'click'</p>
 </div>
 
 
