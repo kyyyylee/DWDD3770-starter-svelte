@@ -11,7 +11,7 @@
 			type: 'alert',
 			// Data
 			title: 'Example Foo Alert',
-			body: 'This is an example modal. Can be used  for alerts or other messages',
+			body: event.detail.text,
 			image: 'https://i.imgur.com/WOgTG96.gif'
 		};
 		modalStore.trigger(modal);
@@ -36,7 +36,10 @@
 		Click for ugly alert
 	</button>
 
-    <Outer on:click/>
+    <Outer on:foo={handleMessage}/>
 </div>
+
+
+
 
 
