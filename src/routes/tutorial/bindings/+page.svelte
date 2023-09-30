@@ -1,8 +1,19 @@
 <script lang="ts">
 	let name = 'world';
+
 	let a = 1;
 	let b = 2;
+
 	let yes = false;
+
+    let answer = '';
+
+    let selected: any;
+	let scoops = 1;
+	let flavors: string[] = [];
+	const formatter = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' });
+	
+    let value = `Some words are *italic*, some are **bold**\n\n- lists\n- are\n- cool`;
 
 	let questions = [
 		{
@@ -18,10 +29,6 @@
 			text: `What is another personal fact that an attacker could easily find with Google?`
 		}
 	];
-
-	let selected: any;
-
-	let answer = '';
 
 	function handleSubmit() {
 		alert(`answered question ${selected.id} (${selected.text}) with "${answer}"`);
@@ -72,11 +79,54 @@
 		</select>
 
 		<input class="p-2 rounded-xl ml-2" bind:value={answer} />
-
-		<button class="m-4 btn btn-md w-36 bg-primary-400" disabled={!answer} type="submit"> Submit </button>
+		<p class="p-2">
+			selected question {selected ? selected.id : '[waiting...]'}
+		</p>
+		<button class="m-2 btn btn-md w-36 bg-primary-400" disabled={!answer} type="submit">
+			Submit
+		</button>
 	</form>
 
-	<p class="p-2">
-		selected question {selected ? selected.id : '[waiting...]'}
-	</p>
+	<h1 class="text-xl mt-4 mb-2">Ice Cream Order!</h1>
+
+	<h2>Size</h2>
+
+	{#each [1, 2, 3] as number}
+		<label class="p-1">
+			<input type="radio" name="scoops" value={number} bind:group={scoops} />
+
+			{number}
+			{number === 1 ? 'scoop' : 'scoops'}
+		</label>
+	{/each}
+
+	<h2 class="mt-2">Flavors</h2>
+
+	{#each ['cookies and cream', 'mint choc chip', 'raspberry ripple'] as flavor}
+		<label class="p-1">
+			<input type="checkbox" name="flavors" value={flavor} bind:group={flavors} />
+
+			{flavor}
+		</label>
+	{/each}
+
+	{#if flavors.length === 0}
+		<p class="text-lg my-2 text-primary-900">Please select at least one flavor</p>
+	{:else if flavors.length > scoops}
+		<p class="text-lg my-2">Can't order more flavors than scoops!</p>
+	{:else}
+		<p class="text-lg my-2">
+			You ordered {scoops}
+			{scoops === 1 ? 'scoop' : 'scoops'}
+			of {formatter.format(flavors)}
+		</p>
+	{/if}
+</div>
+
+<div class="grid m-4">
+	<p class="pb-2">Input</p>
+	<textarea rows="5" class="w-96 p-2 mb-2" bind:value></textarea>
+
+	<p class="mt-2">Output</p>
+	<div>{@html (value)}</div>
 </div>
