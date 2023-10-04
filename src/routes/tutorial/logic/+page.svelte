@@ -25,7 +25,7 @@
         const lastName = faker.person.lastName()
         return {
             lastName,
-            avatar: `https://avatars.dicebear.com/api/${selectedStyle}/${lastName}.svg`,
+            avatar: `https://api.dicebear.com/7.x/${selectedStyle}/svg?seed=${lastName}.svg`,
         }
     })
 

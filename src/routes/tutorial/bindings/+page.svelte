@@ -125,7 +125,7 @@
 
 <div class="grid m-4">
 	<p class="pb-2">Input</p>
-	<textarea rows="5" class="w-96 p-2 mb-2" bind:value></textarea>
+	<textarea rows="5" class="w-96 " bind:value></textarea>
 
 	<p class="mt-2">Output</p>
 	<div>{@html (value)}</div>
