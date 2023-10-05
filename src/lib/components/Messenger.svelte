@@ -10,6 +10,6 @@
 	}
 </script>
 
-<button class="btn btn-lg bg-orange-400 m-4 p-4" on:click={sayHello}>
+<button class="btn btn-lg bg-surface-400 m-4 p-4 text-surface-100" on:click={sayHello}>
 	Click for cute modal
 </button>

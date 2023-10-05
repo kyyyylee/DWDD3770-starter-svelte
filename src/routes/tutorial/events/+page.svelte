@@ -23,9 +23,11 @@
 	} */
 </script>
 
-<div class="flex flex-col items-center m-4 h-11/12">
+<section style="max-width:60rem;margin:auto;">
+	<h1 class="m-4 text-center text-xl">Events</h1>
+<div class="flex flex-col items-center h-11/12">
 	<div
-		class="border border-slate-400 left-0 top-0 w-96 h-96 p-4"
+		class="border border-slate-400 left-0 top-0 w-2/3 h-96 p-4 mt-4"
 		on:pointermove={(e) => (m = { x: e.clientX, y: e.clientY })}
 	>
 		<h2 class="text-center bg-pink-400 p-2 m-4">
@@ -34,7 +36,7 @@
 	</div>
 </div>
 <div class="flex flex-col items-center">
-    <button class="btn btn-lg bg-lime-300 m-4 p-4" on:click|once={() => alert('clicked')}>
+    <button class="btn btn-lg bg-secondary-400 text-secondary-100 m-4 p-4" on:click|once={() => alert('clicked')}>
 		Click for ugly alert
 	</button>
     <p class="mb-2">This example dispatches a basic alert on the first click only</p>
@@ -43,7 +45,7 @@
     <BigPinkButton on:click={handleMessage} />
     <p class="mb-2">This example forwards a DOM 'click'</p>
 </div>
-
+</section>
 
 
 

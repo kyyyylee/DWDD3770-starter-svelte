@@ -13,7 +13,7 @@
   
 
     <div>
-      <nav class="flex justify-end m-2">
+      <nav class="flex justify-center m-2">
         <button
           class="py-2 px-4 rounded-xl mr-2 bg-primary-500 text-white"
           class:opacity-50={activeRoute !== 'Introduction'}

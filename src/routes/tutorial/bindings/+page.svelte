@@ -1,132 +1,113 @@
 <script lang="ts">
-	let name = 'world';
+	let name = 'User';
 
 	let a = 1;
-	let b = 2;
 
 	let yes = false;
 
-    let answer = '';
-
-    let selected: any;
 	let scoops = 1;
 	let flavors: string[] = [];
 	const formatter = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' });
-	
-    let value = `Some words are *italic*, some are **bold**\n\n- lists\n- are\n- cool`;
 
-	let questions = [
-		{
-			id: 1,
-			text: `Where did you go to school?`
-		},
-		{
-			id: 2,
-			text: `What is your mother's name?`
-		},
-		{
-			id: 3,
-			text: `What is another personal fact that an attacker could easily find with Google?`
-		}
-	];
-
-	function handleSubmit() {
-		alert(`answered question ${selected.id} (${selected.text}) with "${answer}"`);
-	}
+	const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+	let selected = colors[0];
+	$: value = `Any text entered into this box will be turned ${selected} below`;
 </script>
 
-<div class="flex flex-col m-4">
-	<input
-		type="text"
-		bind:value={name}
-		class="text-black text-center p-2 border-2 border-surface-900"
-	/>
-	<h1 class="p-2 text-center">Hello {name}!</h1>
+<section style="max-width:60rem;margin:auto;">
+	<h1 class="m-4 text-center text-xl">Bindings</h1>
+	<div class="flex flex-col items-center">
+		<h1 class="text-center text-lg bg-surface-400 text-surface-100 px-4 py-2 m-4 rounded-lg">
+			Hello {name}!
+		</h1>
+		<p class="mb-2">Type your name into the box below!</p>
+		<input
+			type="text"
+			bind:value={name}
+			class="mb-8 text-black text-center py-3 border-2 border-surface-700 bg-surface-100 rounded-lg w-1/2"
+		/>
+	</div>
 
-	<label class="p-2">
-		<input class="pl-2 mb-2" type="number" bind:value={a} min="0" max="10" />
-		<input type="range" bind:value={a} min="0" max="10" />
+	<label class="mx-6 p-2">
+		<input class="pl-2 mb-2" type="number" bind:value={a} min="1" max="9" />
+		<input type="range" bind:value={a} min="1" max="9" />
 	</label>
+	<div class="flex flex-col items-center m-4">
+		<h2 class="p-4 text-primary-{a}00 text-center w-1/2 bg-surface-400">
+			Move the slider to adjust my color!
+		</h2>
+	</div>
 
-	<label class="p-2">
-		<input class="pl-2 mb-2" type="number" bind:value={b} min="0" max="10" />
-		<input type="range" bind:value={b} min="0" max="10" />
-	</label>
+	<h1 class="text-xl mt-10 mb-2 text-center">Ice Cream Order!</h1>
 
-	<p class="p-2 mb-4">{a} + {b} = {a + b}</p>
+	<div class="flex justify-evenly">
+		<div>
+			<h2 class="text-center p-2">Size</h2>
+			{#each [1, 2, 3] as number}
+				<label class="p-2">
+					<input class="mr-2" type="radio" name="scoops" value={number} bind:group={scoops} />
 
-	<label class="p-2">
-		<input type="checkbox" bind:checked={yes} />
-		Yes! Send me regular email spam
-	</label>
-
-	{#if yes}
-		<p class="pl-2">Thank you. We will bombard your inbox and sell your personal details.</p>
-	{:else}
-		<p class="pl-2">You must opt in to continue. If you're not paying, you're the product.</p>
-	{/if}
-	<button class="m-4 btn btn-md w-36 bg-primary-400" disabled={!yes}>Subscribe</button>
-
-	<h2 class="p-2 mb-2">Insecurity questions</h2>
-
-	<form on:submit|preventDefault={handleSubmit}>
-		<select class="p-2 rounded-xl" bind:value={selected} on:change={() => (answer = '')}>
-			{#each questions as question}
-				<option value={question}>
-					{question.text}
-				</option>
+					{number}
+					{number === 1 ? 'scoop' : 'scoops'}
+				</label>
 			{/each}
-		</select>
+		</div>
+		<div>
+			<h2 class="text-center p-2">Flavors</h2>
+			{#each ['Strawberry 🍓', 'Birthday cake🎂', 'Cherry🍒'] as flavor}
+				<label class="p-1">
+					<input class="mr-2" type="checkbox" name="flavors" value={flavor} bind:group={flavors} />
 
-		<input class="p-2 rounded-xl ml-2" bind:value={answer} />
-		<p class="p-2">
-			selected question {selected ? selected.id : '[waiting...]'}
-		</p>
-		<button class="m-2 btn btn-md w-36 bg-primary-400" disabled={!answer} type="submit">
-			Submit
-		</button>
-	</form>
+					{flavor}
+				</label>
+			{/each}
+			{#if flavors.length === 0}
+				<p class="my-2 text-primary-900">Please select at least one flavor</p>
+			{:else if flavors.length > scoops}
+				<p class="text-primary-900 my-2">Can't order more flavors than scoops!</p>
+			{:else}
+				<p class="text-tertiary-700 my-2 max-w-xs">
+					{name} ordered {scoops}
+					{scoops === 1 ? 'scoop' : 'scoops'}
+					of {formatter.format(flavors)}
+				</p>
+			{/if}
+		</div>
+	</div>
 
-	<h1 class="text-xl mt-4 mb-2">Ice Cream Order!</h1>
+	<div class="flex flex-col items-center my-10">
+		<h2 class="p-4">Pick a color</h2>
+		<div>
+			{#each colors as color}
+				<button
+					class="btn btn-md rounded-full p-4 mx-2"
+					aria-current={selected === color}
+					aria-label={color}
+					style="background: {color}"
+					on:click={() => (selected = color)}
+				/>
+			{/each}
+		</div>
+		<p class="pb-2">Input</p>
+		<textarea rows="3" class="w-96" bind:value />
 
-	<h2>Size</h2>
+		<p class="m-2">Output</p>
+		<div class="mb-8 text-center py-3 border-2 border-surface-700 bg-surface-100 rounded-lg w-1/2" style="color: {selected}">{@html value}</div>
+	</div>
 
-	{#each [1, 2, 3] as number}
-		<label class="p-1">
-			<input type="radio" name="scoops" value={number} bind:group={scoops} />
-
-			{number}
-			{number === 1 ? 'scoop' : 'scoops'}
+	<div class="flex flex-col items-center mb-4">
+		<h2 class="p-2">Would you like notifications everytime this site is updated?</h2>
+		<label class="p-2 text-center">
+			<input type="checkbox" bind:checked={yes} />
+			Yes! Send me regular email spam
 		</label>
-	{/each}
-
-	<h2 class="mt-2">Flavors</h2>
-
-	{#each ['cookies and cream', 'mint choc chip', 'raspberry ripple'] as flavor}
-		<label class="p-1">
-			<input type="checkbox" name="flavors" value={flavor} bind:group={flavors} />
-
-			{flavor}
-		</label>
-	{/each}
-
-	{#if flavors.length === 0}
-		<p class="text-lg my-2 text-primary-900">Please select at least one flavor</p>
-	{:else if flavors.length > scoops}
-		<p class="text-lg my-2">Can't order more flavors than scoops!</p>
-	{:else}
-		<p class="text-lg my-2">
-			You ordered {scoops}
-			{scoops === 1 ? 'scoop' : 'scoops'}
-			of {formatter.format(flavors)}
-		</p>
-	{/if}
-</div>
-
-<div class="grid m-4">
-	<p class="pb-2">Input</p>
-	<textarea rows="5" class="w-96 " bind:value></textarea>
-
-	<p class="mt-2">Output</p>
-	<div>{@html (value)}</div>
-</div>
+		{#if yes}
+			<p class="pl-2 text-center">
+				Thank you {name}!
+			</p>
+		{:else}
+			<p class="pl-2 text-center">You must opt in to continue. Pretty please(:</p>
+		{/if}
+		<button class="m-4 btn btn-md w-36 bg-primary-400" disabled={!yes}>Subscribe</button>
+	</div>
+</section>
