@@ -6,6 +6,7 @@
 	import Logic from './logic/+page.svelte';
 	import Events from './events/+page.svelte';
 	import Bindings from './bindings/+page.svelte';
+  import Lifecycle from './lifecycle/+page.svelte';
 
 	// Define the active route
 	let activeRoute = 'Introduction';
@@ -55,6 +56,13 @@
 		>
 			Bindings
 		</button>
+    <button
+			class="py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"
+			class:opacity-50={activeRoute !== 'Lifecycle'}
+			on:click={() => (activeRoute = 'Lifecycle')}
+		>
+			Lifecycle
+		</button>
 	</nav>
 
 	{#if activeRoute === 'Introduction'}
@@ -74,5 +82,8 @@
 	{/if}
 	{#if activeRoute === 'Bindings'}
 		<Bindings />
+	{/if}
+  {#if activeRoute === 'Lifecycle'}
+		<Lifecycle />
 	{/if}
 </div>

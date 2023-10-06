@@ -15,7 +15,7 @@
 		const modal: ModalSettings = {
 			type: 'alert',
 			title: 'Welcome!',
-			body: `Thanks for signing up, ${$localUser.firstName}!`,
+			body: `Thank you for signing up, ${$localUser.firstName}!`,
 		};
 		modalStore.trigger(modal);
 	};
