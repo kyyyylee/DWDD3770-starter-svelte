@@ -11,4 +11,4 @@ Created using :skull_and_crossbones: [Skeleton](https://www.skeleton.dev/) & :he
 
 
 
-#### [HERE](https://dwdd-3770-starter-svelte.vercel.app/tutorial) is my favorite feature that I have added using a [Taylor Swift API](https://github.com/sarbor/taylor_swift_api)
+#### [HERE](https://dwdd-3770-starter-svelte.vercel.app/tutorial/lifecycle) is my favorite feature that I have added using a [Taylor Swift API](https://github.com/sarbor/taylor_swift_api)
