@@ -4,6 +4,7 @@
 	import { Modal, getModalStore } from '@skeletonlabs/skeleton';
 	import type { ModalSettings, ModalComponent, ModalStore } from '@skeletonlabs/skeleton';
 	import { initializeStores } from '@skeletonlabs/skeleton';
+	import ThemeMenu from '$lib/components/ThemeMenu.svelte';
 
 	initializeStores();
 </script>
@@ -25,6 +26,7 @@
                 <a href="/tutorial/logic" class="py-2 px-5 rounded-full hover:text-primary-700 hover:bg-primary-100/50">Logic</a> -->
                 <a href="/tutorial" class="py-2 px-5 rounded-full hover:text-primary-700 hover:bg-primary-100/50">Tutorials</a>
 				<a href="/auth/login" class="py-2 px-5 rounded-full hover:text-primary-700 hover:bg-primary-100/50">Login</a>
+				<ThemeMenu />
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>

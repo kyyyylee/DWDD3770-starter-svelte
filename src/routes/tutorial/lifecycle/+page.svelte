@@ -40,7 +40,7 @@
 
 <div class="flex flex-col items-center justify-center">
     <h1 class="m-4 text-center text-xl">Lifecycle</h1>
-    <h1 class="text-xl m-2 text-secondary-600">Which Taylor Swift Song are you?</h1>
+    <h1 class="text-xl m-2 text-primary-400">Which Taylor Swift Song are you?</h1>
 	{#if songName}
 		<h1 class="bg-primary-300 border-2 border-primary-400 text-white w-96 text-center text-xl p-4 rounded-lg mt-4">{songName.toUpperCase()}</h1>
 	{:else}
@@ -52,7 +52,7 @@
 		value={songLyric}
 		on:keydown={handleKeydown}
 	/>
-    <p class="p-2 text-secondary-600">Hint: Hit 'tab' on your favorite lyrics to make them uppercase!</p>
+    <p class="p-2 text-surface-700">Hint: Hit 'tab' on your favorite lyrics to make them uppercase!</p>
 </div>
 
 <p class="text-center clear-both bottom-0 mt-8 p-2">created using <a href="https://github.com/sarbor/taylor_swift_api" target="_blank">Taylor Swift API</a></p>

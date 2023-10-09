@@ -30,7 +30,7 @@
 		class="border border-slate-400 left-0 top-0 w-2/3 h-96 p-4 mt-4"
 		on:pointermove={(e) => (m = { x: e.clientX, y: e.clientY })}
 	>
-		<h2 class="text-center bg-pink-400 p-2 m-4">
+		<h2 class="text-center bg-primary-400 p-2 m-4">
 			Your pointer is currently at {Math.floor(m.x)} x {Math.floor(m.y)}
 		</h2>
 	</div>
