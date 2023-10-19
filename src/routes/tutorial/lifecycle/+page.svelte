@@ -54,5 +54,4 @@
 	/>
     <p class="p-2 text-surface-700">Hint: Hit 'tab' on your favorite lyrics to make them uppercase!</p>
 </div>
-
 <p class="text-center clear-both bottom-0 mt-8 p-2">created using <a href="https://github.com/sarbor/taylor_swift_api" target="_blank">Taylor Swift API</a></p>

@@ -1,6 +1,6 @@
 <script lang='ts'>
 	let name = 'Svelte'
-	import Nested from '$lib/components/Nested.svelte';
+	import { CodeBlock } from '@skeletonlabs/skeleton';
 </script>
 <section class="flex flex-col items-center" style="max-width:60rem;margin:auto;">
 <h1 class="text-primary-700 text-center font-bold mt-4 text-xl">Welcome to my {name} page!</h1>

@@ -23,6 +23,7 @@ export default {
 			themes: {
 				preset: [ "skeleton", "modern", "crimson", "vintage", "hamlindigo", "wintry", "rocket", "seafoam", "sahara" ]
 			}
-		})
-	]
+		}),
+	],
+	
 } satisfies Config;

@@ -3,6 +3,22 @@
     import BigPinkButton from '$lib/components/BigPinkButton.svelte';
 	import { getModalStore } from '@skeletonlabs/skeleton';
     import type { ModalSettings, ModalComponent, ModalStore } from '@skeletonlabs/skeleton';
+
+
+	import { CodeBlock } from '@skeletonlabs/skeleton';
+
+	import hljs from 'highlight.js/lib/core';
+
+	import xml from 'highlight.js/lib/languages/xml'; // for HTML
+	import typescript from 'highlight.js/lib/languages/typescript';
+	import 'highlight.js/styles/github-dark.css';
+
+	hljs.registerLanguage('xml', xml); // for HTML
+	hljs.registerLanguage('typescript', typescript);
+
+	import { storeHighlightJs } from '@skeletonlabs/skeleton';
+	storeHighlightJs.set(hljs);
+
 	const modalStore = getModalStore();
 
 	let m = { x: 0, y: 0 };
@@ -40,10 +56,14 @@
 		Click for ugly alert
 	</button>
     <p class="mb-2">This example dispatches a basic alert on the first click only</p>
+	<CodeBlock language="ts" code={`on:click|once={() => alert('clicked')}`}></CodeBlock>
     <Outer on:foo={handleMessage}/>
     <p class="mb-2">This example dispatches the Foo event</p>
+	<CodeBlock language="ts" code={`on:foo={handleMessage}
+	`}></CodeBlock>
     <BigPinkButton on:click={handleMessage} />
     <p class="mb-2">This example forwards a DOM 'click'</p>
+	<CodeBlock language="ts" code={`on:click={handleMessage}`}></CodeBlock>
 </div>
 </section>
 

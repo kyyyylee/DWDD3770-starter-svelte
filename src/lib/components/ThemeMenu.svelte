@@ -1,10 +1,10 @@
 <script lang="ts">
     import { theme } from '$lib/stores/theme';
+</script>
     
-    </script>
-    
-    <div class="flex">
-    <select class="select" bind:value={$theme}>
+    <div class="flex items-center bg-surface-200 pl-4 pr-2 rounded-full">
+    <i class="fa-solid fa-palette text-primary-500"></i>
+    <select class="bg-surface-200 cursor-pointer border-none appearance-none rounded-full w-4 pl-0" bind:value={$theme}>
         <option value="wintry">wintry</option>
         <option value="skeleton">skeleton</option>
         <option value="crimson">crimson</option>
