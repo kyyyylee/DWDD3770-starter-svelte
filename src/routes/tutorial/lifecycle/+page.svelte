@@ -6,7 +6,6 @@
     let songLyric: string;
 	let albumCoverSrc: string;
 	let iframeSrc: string;
-    /***/
 
 	onMount(async () => {
 		const songID = Math.floor(Math.random() * 176) + 1;
@@ -92,6 +91,7 @@
 <div class="flex flex-col items-center justify-center">
     <h1 class="m-4 text-center text-xl">Lifecycle</h1>
     <h1 class="text-xl m-2 text-primary-400">Which Taylor Swift Song are you?</h1>
+	<button class="btn bg-surface-400 text-surface-700 px-3 mt-2" on:click={refreshPage}>Click for a new song!</button>
 	{#if songName}
 		<h1 class="bg-primary-300 border-2 border-primary-400 text-white w-96 text-center text-xl p-4 rounded-lg mt-4">{songName.toUpperCase()}</h1>
 	{:else}
@@ -127,6 +127,5 @@ allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-pictur
 loading="lazy"
 ></iframe>
 	 
-<!-- 	<button on:click={refreshPage}>Click for new song!</button>
- --></div>
-<p class="text-center clear-both bg-surface-100 border-t-2 border-b-2 border-surface-500 bottom-0 mt-8 p-2">created using <a class="font-bold" href="https://github.com/sarbor/taylor_swift_api" target="_blank">Taylor Swift API</a></p>
+</div>
+<p class="text-center clear-both bg-surface-100 border-t-2 border-b-2 border-surface-700 text-surface-700 bottom-0 mt-8 p-2">created using <a class="font-bold" href="https://github.com/sarbor/taylor_swift_api" target="_blank">Taylor Swift API</a></p>

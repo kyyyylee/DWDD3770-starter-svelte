@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	// Import necessary components
 	import Introduction from './introduction/+page.svelte';
 	import Reactivity from './reactivity/+page.svelte';
@@ -87,3 +87,4 @@
 		<Lifecycle />
 	{/if}
 </div>
+ -->

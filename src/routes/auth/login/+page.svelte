@@ -21,10 +21,10 @@
 		};
 		modalStore.trigger(modal);
 	};
-	
+
 </script>
 
-<div class="container h-full mx-auto flex justify-center">
+<div class="container mx-auto flex justify-center max-w-xl">
 	<div class="card text-center w-2/3 mt-6">
 		<form
 			on:submit|preventDefault={handleSubmit}

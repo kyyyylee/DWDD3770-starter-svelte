@@ -21,7 +21,7 @@
 	
 	</script>
 	
-	<div class="container h-full mx-auto flex justify-center">
+	<div class="container mx-auto flex justify-center max-w-2xl">
 		<div class="card mt-6 text-center w-3/4">
 		<form on:submit|preventDefault={handleSubmit}  class="form flex flex-col items-center space-y-10 p-4">
 			<h1 class="text-3xl font-bold">Sign up</h1>
