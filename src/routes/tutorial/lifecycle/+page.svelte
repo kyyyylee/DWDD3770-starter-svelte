@@ -4,11 +4,11 @@
 
 	let songName: string;
     let songLyric: string;
+	let albumCoverSrc: string;
     /***/
 
 	onMount(async () => {
-		console.log('onMount');
-		const songID = Math.floor(Math.random() * 150) + 1;
+		const songID = Math.floor(Math.random() * 176) + 1;
 		const songresponse = await fetch(`https://taylor-swift-api.sarbo.workers.dev/songs/${songID}`);
         const lyricresponse = await fetch(`https://taylor-swift-api.sarbo.workers.dev/lyrics/${songID}
 `)
@@ -16,6 +16,40 @@
         const lyric = await lyricresponse.json();
 		songName = song.song_title;
         songLyric = lyric.lyrics
+
+		if (song.album_id === 1) {
+			albumCoverSrc = "https://upload.wikimedia.org/wikipedia/en/d/d5/Taylor_Swift_-_1989_%28Taylor%27s_Version%29.png"
+		}
+		if (song.album_id === 2) {
+			albumCoverSrc = "https://upload.wikimedia.org/wikipedia/en/1/1f/Taylor_Swift_-_Taylor_Swift.png"
+		}
+		if (song.album_id === 3) {
+			albumCoverSrc = "https://upload.wikimedia.org/wikipedia/en/5/5b/Fearless_%28Taylor%27s_Version%29_%282021_album_cover%29_by_Taylor_Swift.png"
+		}
+		if (song.album_id === 4) {
+			albumCoverSrc = "https://upload.wikimedia.org/wikipedia/en/5/5b/Taylor_Swift_-_Speak_Now_%28Taylor%27s_Version%29.png"
+		}
+		if (song.album_id === 5) {
+			albumCoverSrc = "https://upload.wikimedia.org/wikipedia/en/4/47/Taylor_Swift_-_Red_%28Taylor%27s_Version%29.png"
+		}
+		if (song.album_id === 6) {
+			albumCoverSrc = "https://upload.wikimedia.org/wikipedia/en/f/f2/Taylor_Swift_-_Reputation.png"
+		}
+		if (song.album_id === 7) {
+			albumCoverSrc = "https://upload.wikimedia.org/wikipedia/en/c/cd/Taylor_Swift_-_Lover.png"
+		}
+		if (song.album_id === 8) {
+			albumCoverSrc = "https://upload.wikimedia.org/wikipedia/en/f/f8/Taylor_Swift_-_Folklore.png"
+		}
+		if (song.album_id === 9) {
+			albumCoverSrc = "https://upload.wikimedia.org/wikipedia/en/0/0a/Taylor_Swift_-_Evermore.png"
+		}
+		if (song.album_id === 10) {
+			albumCoverSrc = "https://upload.wikimedia.org/wikipedia/en/9/9f/Midnights_-_Taylor_Swift.png"
+		}
+
+		console.log(song.album_id);
+		console.log(songID)
 	});
 
 
@@ -36,6 +70,11 @@
 		this.selectionStart = selectionStart;
 		this.selectionEnd = selectionEnd;
 	}
+
+	function refreshPage () {
+		window.location.reload();
+	}
+
 </script>
 
 <div class="flex flex-col items-center justify-center">
@@ -46,12 +85,25 @@
 	{:else}
 		<p>Loading...</p>
 	{/if}
-    <h2 class="mt-8 mb-2">Lyrics:</h2>
+	
+	{#if albumCoverSrc}
+	<img class="max-w-sm mt-4" src={albumCoverSrc} alt="tscover" />
+	{:else}
+		<p>...</p>
+	{/if}
+	
+	{#if songLyric}
+	<h2 class="mt-4 mb-2">Lyrics:</h2>
 	<textarea
 		class="textarea text-center mx-auto w-2/3 h-64"
 		value={songLyric}
 		on:keydown={handleKeydown}
 	/>
     <p class="p-2 text-surface-700">Hint: Hit 'tab' on your favorite lyrics to make them uppercase!</p>
-</div>
+	{:else}
+		<p>...</p>
+	{/if}
+	 
+<!-- 	<button on:click={refreshPage}>Click for new song!</button>
+ --></div>
 <p class="text-center clear-both bottom-0 mt-8 p-2">created using <a href="https://github.com/sarbor/taylor_swift_api" target="_blank">Taylor Swift API</a></p>
