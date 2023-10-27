@@ -19,7 +19,7 @@
 
 		if (song.album_id === 1) {
 			albumCoverSrc = "https://upload.wikimedia.org/wikipedia/en/d/d5/Taylor_Swift_-_1989_%28Taylor%27s_Version%29.png"
-			iframeSrc = "https://open.spotify.com/embed/album/34OkZVpuzBa9y40DCy0LPR?utm_source=generator"
+			iframeSrc = "https://open.spotify.com/embed/album/64LU4c1nfjz1t4VnGhagcg?utm_source=generator"
 		}
 		if (song.album_id === 2) {
 			albumCoverSrc = "https://upload.wikimedia.org/wikipedia/en/1/1f/Taylor_Swift_-_Taylor_Swift.png"
