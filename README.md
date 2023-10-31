@@ -9,6 +9,10 @@ Created using :skull_and_crossbones: [Skeleton](https://www.skeleton.dev/) & :he
 
 ------>[VERCEL LINK](https://dwdd-3770-starter-svelte.vercel.app/)<------
 
+##All my examples for this assignment found [HERE](https://dwdd-3770-starter-svelte.vercel.app/tutorial/motion)
+
+##Source code [HERE](src/routes/tutorial/motion/+page.svelte)
 
 
-#### [HERE](https://dwdd-3770-starter-svelte.vercel.app/tutorial/lifecycle) is my favorite feature that I have added using a [Taylor Swift API](https://github.com/sarbor/taylor_swift_api)
+
+
