@@ -75,6 +75,9 @@
 			<a href="/tutorial/lifecycle"
 				><button class="py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Lifecycle </button></a
 			>
+			<a href="/tutorial/motion"
+				><button class="py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Motion </button></a
+			>
 		</nav>
 	</div>
 	<slot />
