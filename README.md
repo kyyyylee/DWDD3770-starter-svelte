@@ -9,9 +9,9 @@ Created using :skull_and_crossbones: [Skeleton](https://www.skeleton.dev/) & :he
 
 ------>[VERCEL LINK](https://dwdd-3770-starter-svelte.vercel.app/)<------
 
-##All my examples for this assignment found [HERE](https://dwdd-3770-starter-svelte.vercel.app/tutorial/motion)
+All my examples for this assignment found [HERE](https://dwdd-3770-starter-svelte.vercel.app/tutorial/motion)
 
-##Source code [HERE](src/routes/tutorial/motion/+page.svelte)
+Source code [HERE](src/routes/tutorial/motion/+page.svelte)
 
 
 
