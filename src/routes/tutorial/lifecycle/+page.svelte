@@ -64,6 +64,9 @@
 	});
 
 
+	
+
+
 
 	async function handleKeydown(this: any, event: { key: string; preventDefault: () => void }) {
 		if (event.key !== 'Tab') return;
@@ -111,7 +114,7 @@
 		value={songLyric}
 		on:keydown={handleKeydown}
 	/>
-    <p class="p-2 mb-2 text-surface-700">Hint: Hit 'tab' on your favorite lyrics to make them uppercase!</p>
+    <p class="p-2 mb-2 text-surface-700 text-center">Hint: Hit 'tab' on your favorite lyrics to make them uppercase!</p>
 	{:else}
 		<p>...</p>
 	{/if}

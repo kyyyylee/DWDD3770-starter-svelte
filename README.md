@@ -9,9 +9,9 @@ Created using :skull_and_crossbones: [Skeleton](https://www.skeleton.dev/) & :he
 
 ------>[VERCEL LINK](https://dwdd-3770-starter-svelte.vercel.app/)<------
 
-All my examples for this assignment found [HERE](https://dwdd-3770-starter-svelte.vercel.app/tutorial/motion)
+Examples for this assignment (tween, spring, transitions & animate) are found on the 'Motion' page linked [HERE](https://dwdd-3770-starter-svelte.vercel.app/tutorial/motion) each section is labeled with which feature it implements
 
-Source code [HERE](src/routes/tutorial/motion/+page.svelte)
+Source code can be found [HERE](src/routes/tutorial/motion/+page.svelte)
 
 
 
