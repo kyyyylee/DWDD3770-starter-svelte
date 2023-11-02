@@ -6,11 +6,12 @@
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	import ThemeMenu from '$lib/components/ThemeMenu.svelte';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
-
+	import { blur } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 	initializeStores();
 </script>
 
-<Modal />
+<Modal transitionIn={blur} transitionInParams={{ delay: 250, duration: 300 }} />
 
 <AppShell>
 	<svelte:fragment slot="header">
@@ -53,30 +54,30 @@
 	<div>
 		<nav class="flex justify-center flex-wrap m-2">
 			<a href="/tutorial/introduction"
-				><button class="py-2 px-4 rounded-xl m-2 bg-primary-500 text-white">
+				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white">
 					Introduction
 				</button></a
 			>
 			<a href="/tutorial/reactivity"
-				><button class="py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Reactivity </button></a
+				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Reactivity </button></a
 			>
 			<a href="/tutorial/props"
-				><button class="py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Props </button></a
+				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Props </button></a
 			>
 			<a href="/tutorial/logic"
-				><button class="py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Logic </button></a
+				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Logic </button></a
 			>
 			<a href="/tutorial/events"
-				><button class="py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Events </button></a
+				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Events </button></a
 			>
 			<a href="/tutorial/bindings"
-				><button class="py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Bindings </button></a
+				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Bindings </button></a
 			>
 			<a href="/tutorial/lifecycle"
-				><button class="py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Lifecycle </button></a
+				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Lifecycle </button></a
 			>
 			<a href="/tutorial/motion"
-				><button class="py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Motion </button></a
+				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Motion </button></a
 			>
 		</nav>
 	</div>

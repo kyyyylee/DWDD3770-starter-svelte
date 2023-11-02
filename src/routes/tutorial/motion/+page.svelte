@@ -106,7 +106,7 @@
 			{/each}
 		</ul>
 		<h1 class="text-center text-lg text-primary-500 mt-4">Want to see whats happening behind stage?</h1>
-		<p class="mb-4">Uses an interface element transition</p>
+		<p class="mb-4">Uses an interface element JS transition</p>
 		<label class="mb-4">
 			<input type="checkbox" bind:checked={visible} />
 			show code
