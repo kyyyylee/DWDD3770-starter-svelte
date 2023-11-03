@@ -27,7 +27,7 @@ Created using :skull_and_crossbones: [Skeleton](https://www.skeleton.dev/) & :he
     - The last transition example can be found in the 'How do you rate my website?' section. Once you click 'Submit' a modal element transitions in with a Svelte blur transition. 
 
 
-:computer: Source code for Section 4 can be found [HERE](src/routes/tutorial/motion/+page.svelte)
+:computer: Source code for Section 4 can be found [HERE](src/routes/tutorial/motion/+page.svelte) & [HERE](src/routes/+layout.svelte)
 
 
 
