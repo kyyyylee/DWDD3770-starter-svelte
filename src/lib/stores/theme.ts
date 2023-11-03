@@ -1,7 +1,7 @@
 import {writable} from 'svelte/store';
 import { browser } from '$app/environment';
 
-const defaultValue = 'modern';
+const defaultValue = "sahara";
 const initialValue = browser ? localStorage.getItem('theme') : defaultValue;
 
 export const theme = writable(initialValue);

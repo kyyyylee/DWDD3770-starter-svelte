@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
     import { signIn, signOut } from '@auth/sveltekit/client'
     import { page } from '$app/stores'
   </script>
@@ -9,4 +9,4 @@
   {:else}
     <p>Not signed in.</p>
     <button on:click={() => signIn('github')}>Sign in</button>
-  {/if} -->
+  {/if}
