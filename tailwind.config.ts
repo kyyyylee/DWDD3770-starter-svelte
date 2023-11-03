@@ -19,11 +19,18 @@ export default {
 		typography,
 		forms,
 		// 4. Append the Skeleton plugin (after other plugins)
-		skeleton({
-			themes: {
-				preset: [ "skeleton", "modern", "crimson", "vintage", "hamlindigo", "wintry", "rocket", "seafoam", "sahara" ]
+		skeleton( {
+				themes: {preset: [{ name: 'modern', enhancements: true },
+				{ name: 'skeleton', enhancements: true },
+				{ name: 'crimson', enhancements: true },
+				{ name: 'seafoam', enhancements: true },
+				{ name: 'wintry', enhancements: true },
+				{ name: 'vintage', enhancements: true },
+				{ name: 'hamlindigo', enhancements: true },
+				{ name: 'rocket', enhancements: true },
+				{ name: 'sahara', enhancements: true },
+			]
 			}
-		}),
-	],
-	
+		})
+	]
 } satisfies Config;
