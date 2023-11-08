@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { AppBar, AppShell } from '@skeletonlabs/skeleton';
 	import '../app.postcss';
-	import { Modal, getModalStore } from '@skeletonlabs/skeleton';
-	import type { ModalSettings, ModalComponent, ModalStore } from '@skeletonlabs/skeleton';
+	import { Modal } from '@skeletonlabs/skeleton';
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	import ThemeMenu from '$lib/components/ThemeMenu.svelte';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 	import { blur } from 'svelte/transition';
-	import { slide } from 'svelte/transition';
+	import { Avatar } from '@skeletonlabs/skeleton';
+	import { page } from '$app/stores';
 	initializeStores();
 </script>
 
@@ -46,8 +46,10 @@
 					href="/auth/login"
 					class="py-2 px-4 rounded-full hover:text-primary-700 hover:bg-primary-100/50">Login</a
 				>
+				
 				<ThemeMenu />
 				<LightSwitch />
+				<Avatar src="{$page.data.session?.user?.image ?? ''}" cursor="cursor-pointer" width="w-12" rounded='rounded-full' />
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>

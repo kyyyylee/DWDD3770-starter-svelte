@@ -1,23 +1,25 @@
 <script lang="ts">
-	import { localUser } from '$lib/stores/localUser';
+	//import { localUser } from '$lib/stores/localUser';
+	import { signIn } from '@auth/sveltekit/client'
 	import { getModalStore, type ModalSettings } from '@skeletonlabs/skeleton';
 
 	const modalStore = getModalStore();
 
-	const credentials = {
+	/* const credentials = {
 		email: '',
 		password: ''
-	};
+	}; */
 
     //$: console.log($localUser)
 
 	const handleSubmit = async () => {
-		console.log($localUser)
+		//console.log($localUser)
+		signIn('github')
 		const modal: ModalSettings = {
 			type: 'alert',
 			// Data
 			title: 'Welcome!',
-			body: `Thanks for signing up, ${$localUser.email}!`,
+			body: `Thanks for signing up` //${$localUser.email}!
 		};
 		modalStore.trigger(modal);
 	};
@@ -32,7 +34,7 @@
 		>
 			<h1 class="text-3xl font-bold">Login</h1>
 
-			<input
+			<!-- <input
 				class="input"
 				bind:value={credentials.email}
 				required
@@ -47,10 +49,10 @@
 				autocomplete="current-password"
 				type="password"
 				placeholder="Password"
-			/>
+			/> -->
 
-			<button type="submit" class="btn variant-filled-primary">Login</button>
-            <p class="text-md">Don't have an account? <a class="underline" href="/auth/signup">Sign Up Here</a></p>
+			<button type="submit" class="btn variant-filled-primary">Login with Github</button>
+            <!-- <p class="text-md">Don't have an account? <a class="underline" href="/auth/signup">Sign Up Here</a></p> -->
 		</form>
 	</div>
 </div>
