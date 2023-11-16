@@ -7,27 +7,18 @@ Created using :skull_and_crossbones: [Skeleton](https://www.skeleton.dev/) & :he
 
 
 
-## :arrow_right: :arrow_right: :arrow_right: [VERCEL LINK](https://dwdd-3770-starter-svelte.vercel.app/) :arrow_left: :arrow_left: :arrow_left:
+## :arrow_right: :arrow_right: :arrow_right: :arrow_right: [VERCEL LINK](https://dwdd-3770-starter-svelte.vercel.app/) :arrow_left: :arrow_left: :arrow_left: :arrow_left:
 
 
 
 
-:books: Examples for Section 4 (tween, spring, transitions & animate) are found on the 'Motion' page linked [HERE](https://dwdd-3770-starter-svelte.vercel.app/tutorial/motion)
+:books: Example for Section 5: Connecting AuthJS to OAuth providers is found on the 'Home' page of my site linked [HERE](https://dwdd-3770-starter-svelte.vercel.app/)
 
-    - Tween & spring example is toward the bottom of the page in the 'How do you rate my website?' section.
+    - When you first arrive on my site, you will be prompted to signup/signin with GitHub before you are able to navigate throughout the site. 
+    - After you have successfully logged in, you should see your GitHub icon in the top right corner. You should also see a message on the home page stating "You are currently logged in as XXX"
+    - You can log out by either pressing the "Logout" button on the home page (this will automatically log you out) or you can click your icon in the corner which will prompt you with a modal before it logs you out. 
 
-    - Another spring example is in the stiffness & damping secction.
-
-    - An animate directive is found on the first sectin of the page 'Taylor Swift Concert Set List' - the song elements animate when shuffled!
-
-    - The first UI element transition is found on the tutorial navigation throughout the site! Each button that links to a different page in tutorials has a css transition on hover. 
-
-    - The second transition can be found on the Motions page in the 'Want to see whats happening behind stage?' When you choose the option to show the code block, the element appears with a JS transition. 
-
-    - The last transition example can be found in the 'How do you rate my website?' section. Once you click 'Submit' a modal element transitions in with a Svelte blur transition. 
-
-
-:computer: Source code for Section 4 can be found [HERE](src/routes/tutorial/motion/+page.svelte) & [HERE](src/routes/+layout.svelte)
+:computer: Source code for Section 5 can be found [HERE - hooks file](src/hooks.server.ts), [HERE - +page file](src/routes/+page.svelte) & [HERE - +layout file](src/routes/+layout.svelte)
 
 
 
