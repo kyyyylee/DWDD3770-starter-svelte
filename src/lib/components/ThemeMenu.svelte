@@ -2,9 +2,9 @@
     import { theme } from '$lib/stores/theme';
 </script>
     
-    <div class="flex items-center bg-surface-200 pl-4 pr-2 rounded-full">
-    <i class="fa-solid fa-palette text-primary-500"></i>
-    <select class="bg-surface-200 cursor-pointer border-none appearance-none rounded-full w-4 pl-0" bind:value={$theme}>
+    <div class="flex items-center border border-surface-700 bg-surface-900 pl-2 rounded-full">
+    <i class="fa-solid fa-palette text-white"></i>
+    <select class="bg-surface-900 cursor-pointer border-none rounded-full w-4 h-8 pl-0" bind:value={$theme}>
         <option value="modern">modern</option>
         <option value="wintry">wintry</option>
         <option value="skeleton">skeleton</option>

@@ -7,14 +7,46 @@
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 	import { blur } from 'svelte/transition';
 	import { Avatar } from '@skeletonlabs/skeleton';
+	import { signOut } from '@auth/sveltekit/client';
+	import { getModalStore, type ModalSettings } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
+
 	initializeStores();
+
+	const modalStore = getModalStore();
+
+	let loggedIn: boolean = false;
+
+	if (!$page.data.session?.user) {
+      loggedIn = false;
+   } else {
+      loggedIn = true;
+   }
+
+	const handleSignOut = async () => {
+		const modal: ModalSettings = {
+			type: 'confirm',
+			// Data
+			title: 'Signing out',
+			body: `Are you sure you want to sign out?`,
+			response: (r: boolean) => {
+				if (r) {
+					signOut();
+					goto('/');
+				}
+			}
+		};
+		modalStore.trigger(modal);
+	};
+
 </script>
 
 <Modal transitionIn={blur} transitionInParams={{ delay: 250, duration: 300 }} />
 
 <AppShell>
 	<svelte:fragment slot="header">
+		{#if loggedIn }
 		<AppBar>
 			<svelte:fragment slot="lead">
 				<a
@@ -32,56 +64,85 @@
 				>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<!-- 			<a href="/tutorial">Home</a>
-				<a href="/tutorial">Tutorials</a>
-                <a href="/tutorial/introduction" class="py-2 px-5 rounded-full hover:text-primary-700 hover:bg-primary-100/50">Introduction</a>
-                <a href="/tutorial/reactivity" class="py-2 px-5 rounded-full hover:text-primary-700 hover:bg-primary-100/50">Reactivity</a>
-                <a href="/tutorial/props" class="py-2 px-5 rounded-full hover:text-primary-700 hover:bg-primary-100/50">Props</a>
-                <a href="/tutorial/logic" class="py-2 px-5 rounded-full hover:text-primary-700 hover:bg-primary-100/50">Logic</a>
-				<a
-					href="/tutorial"
-					class="py-2 px-4 rounded-full hover:text-primary-700 hover:bg-primary-100/50">Tutorials</a
-				> -->
-				<a
-					href="/auth/login"
-					class="py-2 px-4 rounded-full hover:text-primary-700 hover:bg-primary-100/50">Login</a
-				>
-				
 				<ThemeMenu />
-				<LightSwitch />
-				<Avatar src="{$page.data.session?.user?.image ?? ''}" cursor="cursor-pointer" width="w-12" rounded='rounded-full' />
+				<LightSwitch class="h-8 flex items-center" />
+				{#if $page.data.session?.user}
+					<Avatar
+						src={$page.data.session?.user?.image ?? ''}
+						on:click={handleSignOut}
+						width="w-14"
+						rounded="rounded-full"
+						border="border-4 border-surface-300-600-token hover:!border-primary-500"
+						cursor="cursor-pointer"
+					/>
+				{:else}
+					<Avatar initials="?" width="w-16" rounded="rounded-full" />
+				{/if}
 			</svelte:fragment>
 		</AppBar>
+		{/if}
 	</svelte:fragment>
+	{#if loggedIn }
 	<div>
 		<nav class="flex justify-center flex-wrap m-2">
 			<a href="/tutorial/introduction"
-				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white">
+				><button
+					class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"
+				>
 					Introduction
 				</button></a
 			>
 			<a href="/tutorial/reactivity"
-				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Reactivity </button></a
+				><button
+					class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"
+				>
+					Reactivity
+				</button></a
 			>
 			<a href="/tutorial/props"
-				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Props </button></a
+				><button
+					class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"
+				>
+					Props
+				</button></a
 			>
 			<a href="/tutorial/logic"
-				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Logic </button></a
+				><button
+					class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"
+				>
+					Logic
+				</button></a
 			>
 			<a href="/tutorial/events"
-				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Events </button></a
+				><button
+					class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"
+				>
+					Events
+				</button></a
 			>
 			<a href="/tutorial/bindings"
-				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Bindings </button></a
+				><button
+					class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"
+				>
+					Bindings
+				</button></a
 			>
 			<a href="/tutorial/lifecycle"
-				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Lifecycle </button></a
+				><button
+					class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"
+				>
+					Lifecycle
+				</button></a
 			>
 			<a href="/tutorial/motion"
-				><button class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"> Motion </button></a
+				><button
+					class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"
+				>
+					Motion
+				</button></a
 			>
 		</nav>
 	</div>
+	{/if}
 	<slot />
 </AppShell>
