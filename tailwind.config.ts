@@ -20,7 +20,7 @@ export default {
 		forms,
 		// 4. Append the Skeleton plugin (after other plugins)
 		skeleton( {
-				themes: {preset: [{ name: 'modern', enhancements: true },
+				themes: {preset: [{ name: 'sahara', enhancements: true },
 				{ name: 'skeleton', enhancements: true },
 				{ name: 'crimson', enhancements: true },
 				{ name: 'seafoam', enhancements: true },
@@ -28,7 +28,7 @@ export default {
 				{ name: 'vintage', enhancements: true },
 				{ name: 'hamlindigo', enhancements: true },
 				{ name: 'rocket', enhancements: true },
-				{ name: 'sahara', enhancements: true },
+				{ name: 'modern', enhancements: true },
 			]
 			}
 		})
