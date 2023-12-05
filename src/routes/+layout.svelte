@@ -62,6 +62,13 @@
 						/></svg
 					>Home</a
 				>
+				<a href="/taylorswift"
+				><button
+					class="transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 py-2 px-4 rounded-xl m-2 bg-primary-500 text-white"
+				>
+					TS Dynamic Route
+				</button></a
+			>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<ThemeMenu />

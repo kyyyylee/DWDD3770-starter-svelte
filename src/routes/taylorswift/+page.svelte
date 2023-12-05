@@ -1,32 +1,51 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+    import { taylorSwiftStore, twentyFiveSongsStore } from '$lib/stores/taylorSwiftStores';
 
+	interface Song {
+    songName: string;
+    songID: number;
+}
 	let twentyFiveSongs: { songName: string }[] = [];
+	let generatedSongIDs = new Set();
+
+	twentyFiveSongsStore.subscribe(value => {
+        twentyFiveSongs = value;
+    });
 
 	onMount(async () => {
 		const songs = await Promise.all(
 			[...Array(25)].map(async () => {
-				const songID = Math.floor(Math.random() * 176) + 1;
+				let songID;
+                do {
+                    songID = Math.floor(Math.random() * 176) + 1;
+                } while (generatedSongIDs.has(songID));
+                generatedSongIDs.add(songID);
 				const songresponse = await fetch(
 					`https://taylor-swift-api.sarbo.workers.dev/songs/${songID}`
 				);
 				const song = await songresponse.json();
 				return {
-					songName: song.song_title
+					songName: song.song_title,
+					songID: songID,
 				};
 			})
 		);
 		twentyFiveSongs = songs;
+		console.log(twentyFiveSongs);
+		taylorSwiftStore.set(songs);
 	});
 </script>
+<h1 class="text-center text-lg text-secondary-500 mb-4">Taylor Swift Songs</h1>
 
-<h1 class="text-center text-lg text-primary-500">Taylor Swift Concert Set List</h1>
-<div class="flex flex-col items-center">
-	<ul>
-		{#each twentyFiveSongs as song (song.songName)}
-			<li class="bg-secondary-400 w-52 rounded-lg text-center py-2 my-2">
-				{song.songName}
-			</li>
-		{/each}
-	</ul>
+
+<ul>
+	<div class="flex flex-wrap  justify-center">
+	{#each twentyFiveSongs as song (song.songName)}
+		<a href={`/taylorswift/${song.songID}`}><li class="bg-primary-400 rounded-full text-center py-2 px-5 m-2">
+			{song.songName}
+		</li></a>
+	{/each}
 </div>
+</ul>
+
