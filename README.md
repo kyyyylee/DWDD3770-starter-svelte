@@ -1,4 +1,4 @@
-# :love_letter: Welcome to my Svelte Project! :love_letter:
+# Welcome to my Svelte Project!
 
 For my DWDD 3770 RIA I class at UVU
 
@@ -12,13 +12,12 @@ Created using :skull_and_crossbones: [Skeleton](https://www.skeleton.dev/) & :he
 
 
 
-:books: Example for Section 5: Connecting AuthJS to OAuth providers is found on the 'Home' page of my site linked [HERE](https://dwdd-3770-starter-svelte.vercel.app/)
+:books: Example for Project - Updated UI with Dynamic route is found on the 'TS Dynamic Route' route of my site linked [HERE](https://dwdd-3770-starter-svelte.vercel.app/taylorswift)
 
-    - When you first arrive on my site, you will be prompted to signup/signin with GitHub before you are able to navigate throughout the site. 
-    - After you have successfully logged in, you should see your GitHub icon in the top right corner. You should also see a message on the home page stating "You are currently logged in as XXX"
-    - You can log out by either pressing the "Logout" button on the home page (this will automatically log you out) or you can click your icon in the corner which will prompt you with a modal before it logs you out. 
-
-:computer: Source code for Section 5 can be found [HERE - hooks file](src/hooks.server.ts), [HERE - +page file](src/routes/+page.svelte) & [HERE - +layout file](src/routes/+layout.svelte)
+    - When you first arrive on the page, 25 Taylor Swift songs wil populate the page
+    - You are able to click on all of these songs and be brought to another page that reveals more information on the song
+    - You will see the title, album cover, album name, lyrics, and the date that it was released
+:computer: Source code for this project can be found [HERE - stores file](src/lib/stores/taylorSwiftStores.ts), [HERE - main +page file](src/routes/taylorswift/+page.svelte), [HERE - detail +page file](src/routes/taylorswift/[songID]/+page.svelte) & [HERE - detail ts file](src/routes/taylorswift/[songID]/+page.ts)
 
 
 
