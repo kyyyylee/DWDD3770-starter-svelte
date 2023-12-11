@@ -89,6 +89,8 @@
 	});
 </script>
 
+
+<section style="max-width:50rem;margin:auto;">
 <div class="flex flex-col items-center">
 	<h1 class="text-secondary-700 text-center font-bold mt-4 text-xl">Motion</h1>
 	<p class="p-4 m-2 text-lg text-center">Svelte Motion is a library that provides a suite of low-level motion primitives that can be used to create animations, transitions, and interactions. Some of these include tweens, springs and transition events.</p>
@@ -201,3 +203,4 @@
 		<button class="btn bg-surface-400 m-4 px-6" on:click={handleMessage}> Submit </button>
 	</div>
 </div>
+</section>

@@ -94,7 +94,7 @@
 <div class="flex flex-col items-center justify-center">
     <h1 class="text-secondary-700 text-center font-bold mt-4 text-xl">Lifecycle</h1>
 		<p class="p-4 m-2 text-lg text-center">
-			Every component has a <span class="font-bold text-secondary-700">lifecycle</span> that starts when it is created, and ends when it is destroyed. The <code class="font-bold text-secondary-700">onMount</code> function is a special function that runs when the component is created. This is a great place to fetch data from an API as demonstrated below! Every time the page first loads (or when you press the new song button), a random Taylor Swift song is displayed from <a class="font-bold text-secondary-700" href="https://github.com/sarbor/taylor_swift_api" target="_blank">Taylor Swift API</a>
+			Every component has a <span class="font-bold text-secondary-700">lifecycle</span> that starts when it is created, and ends when it is destroyed. The <code class="font-bold text-secondary-700">onMount</code> function is a special function that runs when the component is created. This is a great place to fetch data from an API as demonstrated below! Every time the page first loads (or when you press the new song button), a random Taylor Swift song is displayed from the <a class="font-bold text-secondary-700" href="https://github.com/sarbor/taylor_swift_api" target="_blank">Taylor Swift API</a>
 	</p>
 	<button class="btn bg-surface-400 px-3 my-2" on:click={refreshPage}>Click for a new song!</button>
 	{#if songName}
@@ -134,4 +134,3 @@ loading="lazy"
 	 
 </div>
 </section>
-<p class="text-center clear-both border-t-2 border-b-2 border-surface-700 bottom-0 mt-8 p-2">created using <a class="font-bold" href="https://github.com/sarbor/taylor_swift_api" target="_blank">Taylor Swift API</a></p>
