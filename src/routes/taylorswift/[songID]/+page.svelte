@@ -8,8 +8,8 @@
 </script>
 
 <div class="flex flex-col items-center">
-	<button class="btn bg-surface-400 text-surface-700 px-3 mt-2" on:click={goBack}>Go Back</button>
-	<h1 class="bg-transparent border text-white w-72 mx-auto text-center text-xl p-4 rounded-lg m-4">
+	<button class="btn bg-surface-400 px-4 mt-2" on:click={goBack}>Go Back</button>
+	<h1 class="bg-transparent border border-secondary-700 w-72 mx-auto text-center text-xl p-4 rounded-lg m-4">
 		{data.song.name}
 	</h1>
 </div>

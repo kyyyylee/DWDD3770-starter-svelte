@@ -90,13 +90,15 @@
 	}
 
 </script>
-
+<section style="max-width:50rem;margin:auto;">
 <div class="flex flex-col items-center justify-center">
-    <h1 class="m-4 text-center text-xl">Lifecycle</h1>
-    <h1 class="text-xl m-2 text-primary-400">Which Taylor Swift Song are you?</h1>
-	<button class="btn bg-surface-400 text-surface-700 px-3 mt-2" on:click={refreshPage}>Click for a new song!</button>
+    <h1 class="text-secondary-700 text-center font-bold mt-4 text-xl">Lifecycle</h1>
+		<p class="p-4 m-2 text-lg text-center">
+			Every component has a <span class="font-bold text-secondary-700">lifecycle</span> that starts when it is created, and ends when it is destroyed. The <code class="font-bold text-secondary-700">onMount</code> function is a special function that runs when the component is created. This is a great place to fetch data from an API as demonstrated below! Every time the page first loads (or when you press the new song button), a random Taylor Swift song is displayed from <a class="font-bold text-secondary-700" href="https://github.com/sarbor/taylor_swift_api" target="_blank">Taylor Swift API</a>
+	</p>
+	<button class="btn bg-surface-400 px-3 my-2" on:click={refreshPage}>Click for a new song!</button>
 	{#if songName}
-		<h1 class="bg-primary-300 border-2 border-primary-400 text-white w-96 text-center text-xl p-4 rounded-lg mt-4">{songName.toUpperCase()}</h1>
+		<h1 class="bg-secondary-600 border-2 border-secondary-700 w-96 text-center text-xl p-4 rounded-lg mt-4">{songName.toUpperCase()}</h1>
 	{:else}
 		<p>Loading...</p>
 	{/if}
@@ -110,11 +112,11 @@
 	{#if songLyric}
 	<h2 class="mt-4 mb-2">Lyrics:</h2>
 	<textarea
-		class="textarea text-center mx-auto w-2/3 h-64 max-w-lg"
+		class="textarea text-center mx-auto w-2/3 h-64 max-w-lg "
 		value={songLyric}
 		on:keydown={handleKeydown}
 	/>
-    <p class="p-2 mb-2 text-surface-700 text-center">Hint: Hit 'tab' on your favorite lyrics to make them uppercase!</p>
+    <p class="p-2 mb-2 text-surface-200 text-center">Hint: Hit 'tab' on your favorite lyrics to make them uppercase!</p>
 	{:else}
 		<p>...</p>
 	{/if}
@@ -131,4 +133,5 @@ loading="lazy"
 ></iframe>
 	 
 </div>
-<p class="text-center clear-both bg-surface-100 border-t-2 border-b-2 border-surface-700 text-surface-700 bottom-0 mt-8 p-2">created using <a class="font-bold" href="https://github.com/sarbor/taylor_swift_api" target="_blank">Taylor Swift API</a></p>
+</section>
+<p class="text-center clear-both border-t-2 border-b-2 border-surface-700 bottom-0 mt-8 p-2">created using <a class="font-bold" href="https://github.com/sarbor/taylor_swift_api" target="_blank">Taylor Swift API</a></p>

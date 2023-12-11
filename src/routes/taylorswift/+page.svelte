@@ -37,11 +37,11 @@
     });
 </script>
 <section style="max-width:60rem;margin:auto;">
-<h1 class="text-center text-lg mb-4">Taylor Swift Songs</h1>
+<h1 class="text-secondary-700 text-center font-bold my-4 text-xl">Taylor Swift Songs</h1>
 <ul>
 	<div class="flex flex-wrap justify-center">
 	{#each twentyFiveSongs as song (song.songName)}
-		<a href={`/taylorswift/${song.songID}`}><li class="btn bg-transparent rounded-sm border text-center py-2 px-5 m-2 hover:border-primary-500">
+		<a href={`/taylorswift/${song.songID}`}><li class="btn bg-transparent rounded-sm border text-center py-2 px-5 m-2 hover:border-secondary-700">
 			{song.songName}
 		</li></a>
 	{/each}

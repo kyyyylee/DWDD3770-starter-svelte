@@ -25,20 +25,20 @@
 
 	let visible = false;
 
-	let imgSrc = '/heart.png';
+	let imgSrc = 'https://upload.wikimedia.org/wikipedia/en/9/9f/Midnights_-_Taylor_Swift.png';
 
-	const heartWidth = spring(100, {
+	const heartWidth = spring(200, {
 		stiffness: 0.1,
 		damping: 0.4
 	});
 
-	const zoomIn = setInterval(() => {
+/* 	const zoomIn = setInterval(() => {
 		heartWidth.set(200);
 	}, 300);
 
 	const zoomOut = setInterval(() => {
 		heartWidth.set(100);
-	}, 600);
+	}, 600); */
 
 	let coords = spring(
 		{ x: 50, y: 50 },
@@ -90,21 +90,25 @@
 </script>
 
 <div class="flex flex-col items-center">
-	<h1 class="m-4 text-center text-xl">Motion</h1>
+	<h1 class="text-secondary-700 text-center font-bold mt-4 text-xl">Motion</h1>
+	<p class="p-4 m-2 text-lg text-center">Svelte Motion is a library that provides a suite of low-level motion primitives that can be used to create animations, transitions, and interactions. Some of these include tweens, springs and transition events.</p>
 	<h1 class="text-center text-lg text-primary-500">Taylor Swift Concert Set List</h1>
 	<p class="mb-4">Uses the animate directive when shuffled!</p>
 	<div class="flex flex-col items-center">
-		<button class="btn variant-filled mb-2" on:click={shuffle}>Shuffle</button>
+		<button class="btn bg-surface-400 mb-2" on:click={shuffle}>Shuffle</button>
 		<ul>
 			{#each nineSongs as song (song.songName)}
 				<li
-					class="bg-secondary-400 w-52 rounded-lg text-center py-2 my-2"
+					class="bg-secondary-700 w-52 rounded-lg text-center py-2 my-4"
 					animate:flip={{ duration: 400 }}
 				>
 					{song.songName}
 				</li>
 			{/each}
 		</ul>
+		<div class="w-32 h-32">
+			<img src={imgSrc} alt="ts album cover" width={$heartWidth} />
+		</div>
 		<h1 class="text-center text-lg text-primary-500 mt-4">Want to see whats happening behind stage?</h1>
 		<p class="mb-4">Uses an interface element JS transition</p>
 		<label class="mb-4">
@@ -113,7 +117,7 @@
 		</label>
 		<div class="flex gap-4">
 			{#if visible}
-				<div class="" in:fly={{ y: 200, duration: 2000 }} out:fade>
+				<div class="mx-10" in:fly={{ y: 200, duration: 2000 }} out:fade>
 					<CodeBlock
 						language="ts"
 						code={`let nineSongs: { songName: string }[] = [];
@@ -166,16 +170,14 @@
 			on:mousedown={() => size.set(20)}
 			on:mouseup={() => size.set(10)}
 		>
-			<circle fill="#000" cx={$coords.x} cy={$coords.y} r={$size} />
+			<circle fill="#fff" cx={$coords.x} cy={$coords.y} r={$size} />
 		</svg>
 	</div>
 
 	<div class="flex flex-col items-center mt-8">
 		<h1 class="text-center text-lg text-primary-500 mt-4">How do you rate my website?</h1>
 		<p class="mb-4">Uses tween & spring</p>
-		<div class="w-32 h-32">
-			<img src={imgSrc} alt="heart" width={$heartWidth} />
-		</div>
+		
 		<div>
 			<button class="btn bg-surface-400" on:click={() => ($progress = 0)}> 1 star </button>
 
@@ -188,12 +190,12 @@
 			<button class="btn bg-surface-400" on:click={() => ($progress = 100)}> 5 stars </button>
 		</div>
 		<ProgressBar
-			class="mt-4 border-2 border-primary-600"
+			class="mt-4 border-2 border-secondary-700"
 			value={$progress}
 			max={100}
 			height="h-12"
-			meter="bg-primary-200"
-			track="bg-primary-400"
+			meter="bg-secondary-300"
+			track="bg-secondary-500"
 			rounded="rounded-lg"
 		/>
 		<button class="btn bg-surface-400 m-4 px-6" on:click={handleMessage}> Submit </button>

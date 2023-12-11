@@ -10,6 +10,6 @@
 	}
 </script>
 
-<button class="btn btn-lg bg-surface-400 m-4 p-4 text-surface-100" on:click={sayHello}>
-	Click for cute modal
+<button class="btn btn-lg bg-secondary-400 mt-10 m-4 p-4 text-surface-900" on:click={sayHello}>
+	Nested foo messenger
 </button>
