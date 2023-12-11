@@ -36,7 +36,7 @@
         }
     });
 </script>
-<section style="max-width:60rem;margin:auto;">
+<section class="h-screen" style="max-width:60rem;margin:auto;">
 <h1 class="text-secondary-700 text-center font-bold my-4 text-xl">Taylor Swift Songs</h1>
 <ul>
 	<div class="flex flex-wrap justify-center">
